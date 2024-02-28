@@ -1,0 +1,35 @@
+name: FRPC
+services:
+  main_app:
+    cpu_shares: 10
+    command: []
+    container_name: FRPC
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    image: snowdreamtech/frpc
+    labels:
+      icon: https://icon.casaos.io/main/all/frpc.png
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/frpc/
+        target: /etc/frp
+    ports: []
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: host
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://icon.casaos.io/main/all/frpc.png
+  index: /
+  port_map: "7500"
+  scheme: http
+  store_app_id: FRPC
+  title:
+    custom: FRPC
